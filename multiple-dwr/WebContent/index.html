@@ -5,6 +5,7 @@
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.serialize.js"></script>
     <script type="text/javascript" src="dwr/interface/MultiplePrinter.js"></script>
+
     <script type="text/javascript">
       function update(){
         var formData = $('#csprinter_form').serializeJson();
@@ -20,19 +21,28 @@
         $('#error_message').text(message);
         $('#csprinterReply').text("");
       }
+
+      var reply = function(data)
+      {
+        if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
+        else dwr.util.setValue('d2', dwr.util.toDescriptiveString(data, 1));
+      }
     </script>
   </head>
   <body>
     <p>
       <form id="csprinter_form">
         最大値: <input type="text" name="max" value="10"/><br/>
-        指定した倍数の数字をryokunに変える: <input type="text" name="multiple" value="3"/><br/>
+        asdffsadf指定した倍数の数字をryoakunに変える: <input type="text" name="multiple" value="3"/><br/>
         <input value="Send" type="button" onclick="update()"/>
       </form>
-    </p><p>
-      Reply: <span id="csprinterReply"></span>
-    </p><p>
+      asdf: <span id="csprinterReply"></span>
       <span id="error_message" class="error"></span>
     </p>
+
+  executeGet(  );
+  <input class='ibutton' type='button' onclick='MultiplePrinter.executeGet(reply);' value='Execute'  title='Calls MultiplePrinter.executeGet(). View source for details.'/>
+  <span id='d2' class='reply'>6a</span>
+
   </body>
 </html>

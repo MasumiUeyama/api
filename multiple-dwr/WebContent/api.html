@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>DWR Test</title>
+  <!-- These paths use .. so that they still work behind a path mapping proxy. The fully qualified version is more cut and paste friendly. -->
+  <script type='text/javascript' src='../engine.js'></script>
+  <script type='text/javascript' src='../util.js'></script>
+  <script type='text/javascript' src='../interface/MultiplePrinter.js'></script>
+  <script type='text/javascript'>
+  function objectEval(text)
+  {
+    // eval() breaks when we use it to get an object using the { a:42, b:'x' }
+    // syntax because it thinks that { and } surround a block and not an object
+    // So we wrap it in an array and extract the first element to get around
+    // this.
+    // This code is only needed for interpreting the parameter input fields,
+    // so you can ignore this for normal use.
+    // The regex = [start of line][whitespace]{[stuff]}[whitespace][end of line]
+    text = text.replace(/\n/g, ' ');
+    text = text.replace(/\r/g, ' ');
+    if (text.match(/^\s*\{.*\}\s*$/))
+    {
+      text = '[' + text + '][0]';
+    }
+    return eval(text);
+  }
+  </script>
+  <style>
+    input.itext { font-size: smaller; background: #E4E4E4; border: 0; }
+    input.ibutton { font-size: xx-small; border: 1px outset; margin: 0px; padding: 0px; }
+    span.reply { background: #ffffdd; white-space: pre; }
+    span.warning { font-size: smaller; color: red; }
+  </style>
+</head>
+<body onload='dwr.util.useLoadingMessage()'>
+<h2>Methods For: MultiplePrinter (NewCreator for jp.ac.oit.igakilab.dwr.multiple.MultiplePrinter)</h2>
+<p>To use this class in your javascript you will need the following script includes:</p>
+<pre>
+  &lt;script type='text/javascript' src='<a href='/multiple-dwr/dwr/engine.js'>/multiple-dwr/dwr/engine.js</a>'&gt;&lt;/script&gt;
+  &lt;script type='text/javascript' src='<a href='/multiple-dwr/dwr/interface/MultiplePrinter.js'>/multiple-dwr/dwr/interface/MultiplePrinter.js</a>'&gt;&lt;/script&gt;
+</pre>
+<p>In addition there is an optional utility script:</p>
+<pre>
+  &lt;script type='text/javascript' src='<a href='/multiple-dwr/dwr/util.js'>/multiple-dwr/dwr/util.js</a>'&gt;&lt;/script&gt;
+</pre>
+<p>Replies from DWR are shown with a yellow background if they are simple or in an alert box otherwise.<br/>
+The inputs are evaluated as Javascript so strings must be quoted before execution.</p>
+<li>
+  executeGet(  );
+  <input class='ibutton' type='button' onclick='MultiplePrinter.executeGet(reply0);' value='Execute'  title='Calls MultiplePrinter.executeGet(). View source for details.'/>
+  <script type='text/javascript'>
+    var reply0 = function(data)
+    {
+      if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
+      else dwr.util.setValue('d0', dwr.util.toDescriptiveString(data, 1));
+    }
+  </script>
+  <span id='d0' class='reply'></span>
+</li>
+<li>
+  executeParseJson(  );
+  <input class='ibutton' type='button' onclick='MultiplePrinter.executeParseJson(reply1);' value='Execute'  title='Calls MultiplePrinter.executeParseJson(). View source for details.'/>
+  <script type='text/javascript'>
+    var reply1 = function(data)
+    {
+      if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
+      else dwr.util.setValue('d1', dwr.util.toDescriptiveString(data, 1));
+    }
+  </script>
+  <span id='d1' class='reply'></span>
+</li>
+</ul>
+
+<div>
+
+
+
+</div>
+</body></html>
