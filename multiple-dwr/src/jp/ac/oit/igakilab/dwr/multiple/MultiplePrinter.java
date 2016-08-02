@@ -126,6 +126,13 @@ public class MultiplePrinter {
         return buffer.toString();
     }
 
+
+    /**
+     * 参考:http://gootara.org/library/2014/04/javaapijsonjdk1618.html
+     * @return
+     * @throws Exception
+     */
+
     public String executeParseJson() throws Exception{
     	String data = executeGet();
 
